@@ -3135,9 +3135,7 @@ class PlayState extends MusicBeatState
 							goodNoteHit(daNote);
 					});
 				}
-		 
-				if (KeyBinds.gamepad && !FlxG.keys.justPressed.ANY)
-				{
+
 					// PRESSES, check for note hits
 					if (pressArray.contains(true) && generatedMusic)
 					{
@@ -3154,7 +3152,6 @@ class PlayState extends MusicBeatState
 								{
 									if (directionList.contains(daNote.noteData))
 										{
-											directionsAccounted[daNote.noteData] = true;
 											for (coolNote in possibleNotes)
 											{
 												if (coolNote.noteData == daNote.noteData && Math.abs(daNote.strumTime - coolNote.strumTime) < 10)
@@ -3219,8 +3216,6 @@ class PlayState extends MusicBeatState
 										noteMiss(shit, null);
 							}
 					}
-
-				}
 				notes.forEachAlive(function(daNote:Note)
 				{
 					if(PlayStateChangeables.useDownscroll && daNote.y > strumLine.y ||
@@ -3247,12 +3242,6 @@ class PlayState extends MusicBeatState
 						}
 					}
 				});
-				
-				if (boyfriend.holdTimer > Conductor.stepCrochet * 4 * 0.001 && (!holdArray.contains(true) || PlayStateChangeables.botPlay))
-				{
-					if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
-						boyfriend.playAnim('idle');
-				}
 		 
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
