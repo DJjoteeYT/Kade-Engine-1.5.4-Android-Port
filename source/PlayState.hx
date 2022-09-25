@@ -1233,19 +1233,19 @@ class PlayState extends MusicBeatState
 		generateStaticArrows(1);
 
 
-		#if windows
+		#if cpp
 		// pre lowercasing the song name (startCountdown)
 		var songLowercase = StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase();
 		switch (songLowercase) {
 			case 'dad-battle': songLowercase = 'dadbattle';
 			case 'philly-nice': songLowercase = 'philly';
 		}
-		#end
 		if (executeModchart)
 		{
 			luaModchart = ModchartState.createModchartState();
 			luaModchart.executeState('start',[songLowercase]);
 		}
+		#end
 
 		talking = false;
 		startedCountdown = true;
@@ -3322,9 +3322,9 @@ class PlayState extends MusicBeatState
 			}
 
 
-			/*public function backgroundVideo(source:String) // for background videos
+			public function backgroundVideo(source:String) // for background videos
 				{
-					#if cpp
+					#if desktop
 					useVideo = true;
 			
 					FlxG.stage.window.onFocusOut.add(focusOut);
@@ -3376,7 +3376,7 @@ class PlayState extends MusicBeatState
 					else
 						webmHandler.resume();
 					#end
-				}*/
+				}
 
 	function noteMiss(direction:Int = 1, daNote:Note):Void
 	{
