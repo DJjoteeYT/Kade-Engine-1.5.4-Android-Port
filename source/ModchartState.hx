@@ -4,7 +4,6 @@
 import openfl.display3D.textures.VideoTexture;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
-#if windows
 import flixel.tweens.FlxEase;
 import openfl.filters.ShaderFilter;
 import flixel.tweens.FlxTween;
@@ -20,6 +19,7 @@ import llua.LuaL;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
+import openfl.utils.Assets as OpenFlAssets;
 
 class ModchartState 
 {
@@ -367,7 +367,7 @@ class ModchartState
 					case 'philly-nice': songLowercase = 'philly';
 				}
 
-				var result = LuaL.dofile(lua, Paths.lua(songLowercase + "/modchart")); // execute le file
+				var result = LuaL.dostring(lua, OpenFlAssets.getText("assets/data/" + PlayState.SONG.song.toLowerCase() + "/modchart.lua")); // execute le file
 	
 				if (result != 0)
 				{
@@ -915,4 +915,3 @@ class ModchartState
         return new ModchartState();
     }
 }
-#end
