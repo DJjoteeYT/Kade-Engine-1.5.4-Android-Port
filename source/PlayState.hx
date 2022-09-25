@@ -271,7 +271,7 @@ class PlayState extends MusicBeatState
 		
 		removedVideo = false;
 
-		executeModchart = OpenFlAssets.exists("assets/data/" + PlayState.SONG.song.toLowerCase()  + "/modchart.lua"));
+		executeModchart = OpenFlAssets.exists("assets/data/" + PlayState.SONG.song.toLowerCase()  + "/modchart.lua");
 		if (executeModchart)
 			PlayStateChangeables.Optimize = false;
 
