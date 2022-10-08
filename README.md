@@ -1,4 +1,4 @@
-#DJjoteeYT, delete this please, this is not complete, when this is complete you can fork.
+# DJjoteeYT, delete this please, this is not complete, when this is complete you can fork.
 
 ![Kade Engine logo](assets/preload/images/KadeEngineLogo.png)
 
